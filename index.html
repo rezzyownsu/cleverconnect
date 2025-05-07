@@ -1,4 +1,4 @@
-<html lang="en">
+window? <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -185,41 +185,12 @@
         </div>
     </div>  
     <script>
-        <script>
-    function openGame(url) {
-        const newWindow = window.open('about:blank', '_blank', 'width=1000,height=700');
-        if (newWindow) {
-            newWindow.document.write(`
-                <html>
-                    <head>
-                        <title>Loading...</title>
-                        <style>
-                            body, html {
-                                margin: 0;
-                                padding: 0;
-                                height: 100%;
-                                overflow: hidden;
-                                background-color: black;
-                            }
-                            iframe {
-                                width: 100%;
-                                height: 100%;
-                                border: none;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <iframe src="${url}" allowfullscreen></iframe>
-                    </body>
-                </html>
-            `);
-            newWindow.document.close(); // important to finish writing
-        } else {
-            alert("Popup blocked! Please allow popups for this site.");
-        }
-    }
-</script>
-
+        function openGame(url) {
+            const newWindow = window.open('about:blank', '_blank', 'width=800,height=600,scrollbars=yes');
+            newWindow.document.write('<html><head><title>about:blank</title></head><body style="margin: 0; overflow: hidden;"><iframe src="'+ url +'" style="width: 100%; height: 100vh; border: none;"></iframe></body></html>');
+            newWindow.document.close(); 
+    </script>
 </body>
 </html>
+
 
