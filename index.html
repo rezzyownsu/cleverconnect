@@ -3,207 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silent Gateway</title> <!-- Updated tab title for stealthy name -->
+    <title>Game Portal</title>
     <style>
         body {
-            background-color: black;
+            background-color: #121212; /* Dark background similar to Number 1 */
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://4kwallpapers.com/images/wallpapers/lake-mountains-rocks-sunrise-daylight-scenery-illustration-3773.jpg');
-            background-size: cover;
-            background-position: center;
-            cursor: url('https://www.svgrepo.com/show/423072/hand-cursor.svg'), pointer; /* Custom Cursor */
-        }
-
-        .game-container {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 20px;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            height: 100vh;
+            flex-direction: column;
         }
-
         h1 {
+            font-size: 2.5em;
             text-align: center;
             margin-bottom: 20px;
-            color: white;
         }
-
-        .info-text {
-            color: yellow;
-            font-size: 18px;
-            text-align: center;
-            font-style: italic;
-            margin-top: 20px;
-        }
-
         .game-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Responsive grid layout */
-            gap: 10px;
-            width: 90%;
-            max-width: 1200px;
-            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
-
         .game-item {
             background-color: #333;
-            padding: 10px;
-            font-size: 14px;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        .game-item:hover {
-            background-color: #444;
-            box-shadow: 0 6px 12px rgba(0, 255, 0, 0.7);
-            transform: scale(1.05);
-        }
-
-        .game-item:active {
-            transform: scale(1.02);
-        }
-
-        .side-text {
             color: white;
-            font-size: 18px;
-            line-height: 1.5;
-            max-width: 300px;
-            margin-top: 20px;
-        }
-
-        .side-text h2 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .credits {
-            text-align: center;
-            color: white;
-            font-size: 14px;
-            margin-top: 50px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin-bottom: 0;
-        }
-
-        .credits p {
-            margin: 5px 0;
-        }
-
-        .unblock-button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            text-align: center;
-            font-size: 16px;
+            padding: 15px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        .unblock-button:hover {
-            background-color: #45a049;
+        .game-item:hover {
+            background-color: #555;
         }
-
-        .unblock-button:active {
-            background-color: #3e8e41;
-        }
-
         .unblock-button-container {
             display: flex;
-            gap: 10px;
+            margin-top: 20px;
+        }
+        .unblock-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .unblock-button:hover {
+            background-color: #555;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <div class="game-container">
-        <!-- Info Text Added -->
-        <div class="info-text">
-            1 of many alt links not done yet.
-        </div>
-        
-        <h1>Game Hub</h1>
-        <div class="game-list">
-            <div class="game-item" onclick="openGame('https://ducklit.com')">Ducklit</div>
-            <div class="game-item" onclick="openGame('https://nullxiety.com')">Nullxiety</div>
-            <div class="game-item" onclick="openGame('https://retrobowlcollege.com')">Retro Bowl College</div>
-            <div class="game-item" onclick="openGame('https://openexams.com')">OpenExams</div>
-            <div class="game-item" onclick="openGame('https://unblockedgames.com')">Unblocked Games</div>
-            <div class="game-item" onclick="openGame('https://openexams.com')">OpenExams</div>
-            <!-- New Games Added -->
-            <div class="game-item" onclick="openGame('https://doodlejump.com')">Doodle Jump</div>
-            <div class="game-item" onclick="openGame('https://supermario.com')">Super Mario</div>
-            <div class="game-item" onclick="openGame('https://2048doge.com')">2048 Doge</div>
-            <div class="game-item" onclick="openGame('https://cookieclicker2.com')">Cookie Clicker 2</div>
-            <div class="game-item" onclick="openGame('https://slope.com')">Slope</div>
-            <div class="game-item" onclick="openGame('https://tictactoe.com')">Tic Tac Toe</div>
-            <div class="game-item" onclick="openGame('https://tunnelrush.com')">Tunnel Rush</div>
-            <div class="game-item" onclick="openGame('https://basketballstars.com')">Basketball Stars</div>
-            <div class="game-item" onclick="openGame('https://subwaysurfers.com')">Subway Surfers</div>
-            <div class="game-item" onclick="openGame('https://snake.com')">Snake</div>
-            <div class="game-item" onclick="openGame('https://1v1.lol')">1v1.lol</div>
-            <div class="game-item" onclick="openGame('https://retrobowlcollege.com')">Retro Bowl College</div>
-            <div class="game-item" onclick="openGame('https://smashkarts.com')">Smash Karts</div>
-            <div class="game-item" onclick="openGame('https://rooftopsnipers.com')">Rooftop Snipers</div>
-            <div class="game-item" onclick="openGame('https://kong.com')">Kong</div>
-            <div class="game-item" onclick="openGame('https://planetclicker.com')">Planet Clicker</div>
-            <div class="game-item" onclick="openGame('https://bitlife.com')">BitLife</div>
-            <div class="game-item" onclick="openGame('https://bitlifehighway.com')">BitLife Highway</div>
-            <div class="game-item" onclick="openGame('https://templerun.com')">Temple Run</div>
-            <div class="game-item" onclick="openGame('https://asteroids.com')">Asteroids</div>
-            <!-- New Games Added -->
-            <div class="game-item" onclick="openGame('https://flappybird.com')">Flappy Bird</div>
-            <div class="game-item" onclick="openGame('https://tinyfishing.com')">Tiny Fishing</div>
-            <div class="game-item" onclick="openGame('https://footballlegends.com')">Football Legends</div>
-            <div class="game-item" onclick="openGame('https://freemahjong.com')">Free Mahjong</div>
-            <div class="game-item" onclick="openGame('https://drivemad.com')">Drive Mad</div>
-            <div class="game-item" onclick="openGame('https://skibiditoilet.com')">Skibidi Toilet</div>
-            <div class="game-item" onclick="openGame('https://fireboyandwatergirl.com')">Fireboy & Watergirl</div>
-            <div class="game-item" onclick="openGame('https://madalinstuntcars.com')">Madalin Stunt Cars</div>
-            <div class="game-item" onclick="openGame('https://pokemontowerdefense.com')">Pokemon Tower Defense</div>
-            <div class="game-item" onclick="openGame('https://rollyvortex.com')">Rolly Vortex</div>
-            <div class="game-item" onclick="openGame('https://drifthunters.com')">Drift Hunters</div>
-            <div class="game-item" onclick="openGame('https://snowrider.com')">Snow Rider</div>
-            <div class="game-item" onclick="openGame('https://slitherio.com')">Slither.io</div>
-            <div class="game-item" onclick="openGame('https://leveldevil.com')">Level Devil</div>
-            <div class="game-item" onclick="openGame('https://agar.io')">Agar.io</div>
-            <div class="game-item" onclick="openGame('https://timeshooter2.com')">Time Shooter 2</div>
-            <div class="game-item" onclick="openGame('https://wbwwb.com')">WBWWB</div>
-            <div class="game-item" onclick="openGame('https://yohoho.com')">YoHoHo</div>
-            <div class="game-item" onclick="openGame('https://tombofthemask.com')">Tomb of the Mask</div>
-        </div>
+
+    <h1>Game Portal</h1>
+    <div class="game-list">
+        <div class="game-item" onclick="openGame('https://yohoho.io')">YoYoYo</div>
+        <div class="game-item" onclick="openGame('https://retrobowl.me')">Retro Bowl</div>
+        <div class="game-item" onclick="openGame('https://slopeio.org')">Slope</div>
+        <div class="game-item" onclick="openGame('https://moto-x3m.io')">Moto X3M</div>
+        <div class="game-item" onclick="openGame('https://geometry-lite.io')">Neon Dash</div>
+        <div class="game-item" onclick="openGame('https://slope-run.com')">Slope Run Game</div>
+        <div class="game-item" onclick="openGame('https://basketrandom.io')">Basket Random</div>
+        <div class="game-item" onclick="openGame('https://bloxorz.com')">Bloxorz</div>
+        <div class="game-item" onclick="openGame('https://ducklit.com')">DuckDuck</div>
+        <div class="game-item" onclick="openGame('https://letsplayuno.com')">UNO Online</div>
+        <div class="game-item" onclick="openGame('https://gamesuperhot.github.io/play/super-star-car.html')">Superstar Car</div>
+        <div class="game-item" onclick="openGame('https://clusterrush.io')">Cluster Rush</div>
+        <div class="game-item" onclick="openGame('https://fnaf1.com')">FNaF 1-4</div>
+        <div class="game-item" onclick="openGame('https://impostor.io')">Impostor.io</div>
+        <div class="game-item" onclick="openGame('https://supermarioplay.com')">Super Mario Flash</div>
+        <div class="game-item" onclick="openGame('https://experimonkey.com/games/the-impossible-quiz')">The Impossible Quiz</div>
+        <div class="game-item" onclick="openGame('https://subwaysurfersgame.io')">Subway Surfers</div>
+        <div class="game-item" onclick="openGame('https://quickdraw.withgoogle.com')">Speedrun 4</div>
+        <div class="game-item" onclick="openGame('https://tanktrouble.com')">Tank Trouble</div>
+        <div class="game-item" onclick="openGame('https://jetrush.com')">Jet Rush</div>
+        <div class="game-item" onclick="openGame('https://ducklife.com')">Duck Life</div>
+        <div class="game-item" onclick="openGame('https://idle-breakout.neocities.org')">Idle Breakout</div>
+        <div class="game-item" onclick="openGame('https://pacman.com')">Pac-Man</div>
+        <div class="game-item" onclick="openGame('https://flappybird.com')">Flappy Bird</div>
+        <div class="game-item" onclick="openGame('https://speedrun4.com')">Speedrun 4</div>
+        <div class="game-item" onclick="openGame('https://krunker.io')">Krunker.io</div>
+        <div class="game-item" onclick="openGame('https://gnhustgames.github.io/homepage/')">Tower Defense</div>
+    </div>
+
+    <!-- UN-blocker buttons -->
+    <div class="unblock-button-container">
+        <button class="unblock-button" onclick="openUnblockApp()">UN-blocker</button>
+        <button class="unblock-button" onclick="openUnblockAppV2()">UN-blocker V2</button>
     </div>
 
     <script>
         function openGame(url) {
-            let newWindow = window.open('about:blank', '_blank');
-            newWindow.location = url;  // This will load the game URL after opening the blank window
+            window.open(url, '_blank'); // Open game in a new tab
+        }
+
+        function openUnblockApp() {
+            window.open('https://about:blank', '_blank'); // Opens a new tab with about:blank
+        }
+
+        function openUnblockAppV2() {
+            window.open('https://about:blank', '_blank'); // Same for V2
         }
     </script>
 </body>
 </html>
-
-
-
-
-
