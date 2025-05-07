@@ -1,218 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silent Gateway</title> <!-- Updated tab title for stealthy name -->
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('https://4kwallpapers.com/images/wallpapers/lake-mountains-rocks-sunrise-daylight-scenery-illustration-3773.jpg');
-            background-size: cover;
-            background-position: center;
-            cursor: url('https://www.svgrepo.com/show/423072/hand-cursor.svg'), pointer; /* Custom Cursor */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Silent Gateway</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://4kwallpapers.com/images/wallpapers/lake-mountains-rocks-sunrise-daylight-scenery-illustration-3773.jpg');
+      background-size: cover;
+      background-position: center;
+      cursor: url('https://www.svgrepo.com/show/423072/hand-cursor.svg'), pointer;
+    }
 
-        .game-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
+    .game-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      width: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: white;
-        }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: white;
+    }
 
-        .info-text {
-            color: yellow;
-            font-size: 18px;
-            text-align: center;
-            font-style: italic;
-            margin-top: 20px;
-        }
+    .info-text {
+      color: yellow;
+      font-size: 18px;
+      text-align: center;
+      font-style: italic;
+      margin-top: 10px;
+    }
 
-        .game-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Responsive grid layout */
-            gap: 10px;
-            width: 90%;
-            max-width: 1200px;
-            padding: 20px;
-        }
+    .game-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+      width: 90%;
+      max-width: 1300px;
+      padding: 20px;
+    }
 
-        .game-item {
-            background-color: #333;
-            padding: 10px;
-            font-size: 14px;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
+    .game-item {
+      background-color: #333;
+      padding: 10px;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
 
-        .game-item:hover {
-            background-color: #444;
-            box-shadow: 0 6px 12px rgba(0, 255, 0, 0.7);
-            transform: scale(1.05);
-        }
+    .game-item:hover {
+      background-color: #444;
+      box-shadow: 0 6px 12px rgba(0, 255, 0, 0.7);
+      transform: scale(1.05);
+    }
 
-        .game-item:active {
-            transform: scale(1.02);
-        }
+    .game-item:active {
+      transform: scale(1.02);
+    }
 
-        .side-text {
-            color: white;
-            font-size: 18px;
-            line-height: 1.5;
-            max-width: 300px;
-            margin-top: 20px;
-        }
+    .credits {
+      text-align: center;
+      color: white;
+      font-size: 14px;
+      margin-top: 50px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+    }
 
-        .side-text h2 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
+    .unblock-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
 
-        .credits {
-            text-align: center;
-            color: white;
-            font-size: 14px;
-            margin-top: 50px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin-bottom: 0;
-        }
+    .unblock-button:hover {
+      background-color: #45a049;
+    }
 
-        .credits p {
-            margin: 5px 0;
-        }
+    .unblock-button:active {
+      background-color: #3e8e41;
+    }
 
-        .unblock-button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            text-align: center;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .unblock-button:hover {
-            background-color: #45a049;
-        }
-
-        .unblock-button:active {
-            background-color: #3e8e41;
-        }
-
-        .unblock-button-container {
-            display: flex;
-            gap: 10px;
-        }
-    </style>
+    .unblock-button-container {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="game-container">
-        <!-- Info Text Added -->
-        <div class="info-text">
-            1 of many alt links not done yet.
-        </div>
-        
-        <h1>Game Hub</h1>
-        <div class="game-list">
-            <div class="game-item" onclick="openGame('https://ducklit.com')">Ducklit</div>
-            <div class="game-item" onclick="openGame('https://nullxiety.com/')">Nullxiety</div>
-            <div class="game-item" onclick="openGame('https://retro-bowl-college-unblocked.pages.dev/')">Retro Bowl College</div>
-            <div class="game-item" onclick="openGame('https://openexams-net.pages.dev/')">OpenExams</div>
-            <div class="game-item" onclick="openGame('https://unblocked-games.school/')">Unblocked Games</div>
-            <div class="game-item" onclick="openGame('https://openexams.net/')">OpenExams</div>
-            <!-- New Games Added -->
-            <div class="game-item" onclick="openGame('https://doodlejump.io/?utm_source=side_nav')">Doodle Jump</div>
-            <div class="game-item" onclick="openGame('https://supermario.ee/?utm_source=side_nav')">Super Mario</div>
-            <div class="game-item" onclick="openGame('https://2048.ee/doge/?utm_source=side_nav')">2048 Doge</div>
-            <div class="game-item" onclick="openGame('https://cookie-clicker2.io/?utm_source=side_nav')">Cookie Clicker 2</div>
-            <div class="game-item" onclick="openGame('https://playslope.io/?utm_source=side_nav')">Slope</div>
-            <div class="game-item" onclick="openGame('https://tictactoe.ee/?utm_source=side_nav')">Tic Tac Toe</div>
-            <div class="game-item" onclick="openGame('https://tunnelrush.app/?utm_source=side_nav')">Tunnel Rush</div>
-            <div class="game-item" onclick="openGame('https://basketballstars.app/?utm_source=side_nav')">Basketball Stars</div>
-            <div class="game-item" onclick="openGame('https://subwaysurfers.app/?utm_source=side_nav')">Subway Surfers</div>
-            <div class="game-item" onclick="openGame('https://snak.ee/?utm_source=side_nav')">Snake</div>
-            <div class="game-item" onclick="openGame('https://1v1lol.me/?utm_source=side_nav')">1v1.lol</div>
-            <div class="game-item" onclick="openGame('https://retrobowlcollege.co/?utm_source=side_nav')">Retro Bowl College</div>
-            <div class="game-item" onclick="openGame('https://smash-karts.co/?utm_source=side_nav')">Smash Karts</div>
-            <div class="game-item" onclick="openGame('https://rooftop-snipers.io/?utm_source=side_nav')">Rooftop Snipers</div>
-            <div class="game-item" onclick="openGame('https://kong.ee/?utm_source=side_nav')">Kong</div>
-            <div class="game-item" onclick="openGame('https://planetclicker.org/?utm_source=side_nav')">Planet Clicker</div>
-            <div class="game-item" onclick="openGame('https://bitlifegame.com/?utm_source=side_nav')">BitLife</div>
-            <div class="game-item" onclick="openGame('https://bitlifegame.com/highway-traffic/')">BitLife Highway</div>
-            <div class="game-item" onclick="openGame('https://templerun.ee/?utm_source=side_nav')">Temple Run</div>
-            <div class="game-item" onclick="openGame('https://asteroids.ee/?utm_source=side_nav')">Asteroids</div>
-            <!-- New Games Added -->
-            <div class="game-item" onclick="openGame('https://flappybird.ee/?utm_source=side_nav')">Flappy Bird</div>
-            <div class="game-item" onclick="openGame('https://tinyfishing.io/?utm_source=side_nav')">Tiny Fishing</div>
-            <div class="game-item" onclick="openGame('https://football-legends.io/?utm_source=side_nav')">Football Legends</div>
-            <div class="game-item" onclick="openGame('https://freemahjong.io/?utm_source=side_nav')">Free Mahjong</div>
-            <div class="game-item" onclick="openGame('https://drivemad.me/?utm_source=side_nav')">Drive Mad</div>
-            <div class="game-item" onclick="openGame('https://skibidi-toilet.org/?utm_source=side_nav')">Skibidi Toilet</div>
-            <div class="game-item" onclick="openGame('https://fireboyandwatergirl.me/?utm_source=side_nav')">Fireboy & Watergirl</div>
-            <div class="game-item" onclick="openGame('https://madalinstuntcars.me/?utm_source=side_nav')">Madalin Stunt Cars</div>
-            <div class="game-item" onclick="openGame('https://pokemontowerdefense.org/?utm_source=side_nav')">Pokemon Tower Defense</div>
-            <div class="game-item" onclick="openGame('https://rollyvortex.org/?utm_source=side_nav')">Rolly Vortex</div>
-            <div class="game-item" onclick="openGame('https://drifthunters.app/?utm_source=side_nav')">Drift Hunters</div>
-            <div class="game-item" onclick="openGame('https://snowrider.org/?utm_source=side_nav')">Snow Rider</div>
-            <div class="game-item" onclick="openGame('https://slitherio.lol/?utm_source=side_nav')">Slither.io</div>
-            <div class="game-item" onclick="openGame('https://leveldevil.org/?utm_source=side_nav')">Level Devil</div>
-            <div class="game-item" onclick="openGame('https://agario.one/?utm_source=side_nav')">Agar.io</div>
-            <div class="game-item" onclick="openGame('https://timeshooter2.org/?utm_source=side_nav')">Time Shooter 2</div>
-            <div class="game-item" onclick="openGame('https://wbwwb.com/?utm_source=side_nav')">WBWWB</div>
-            <div class="game-item" onclick="openGame('https://yohoho.xyz/?utm_source=side_nav')">Yohoho.io</div>
-        </div>
-
-        <div class="side-text">
-            <h2>Stealthy games to play:</h2>
-            <p>Get ready for an endless list of fun! You can click on any game below and get lost for hours. They all open in new tabs, so no worries about losing your spot!</p>
-        </div>
-
-        <div class="credits">
-            <p>Made by Adam</p>
-        </div>
-
-        <!-- Unblock Button Section -->
-        <div class="unblock-button-container">
-            <button class="unblock-button" onclick="window.location.href='https://zone.homebrewer.org'">Unblock Now</button>
-        </div>
-
+  <div class="game-container">
+    <div class="info-text">1 of many alt links not done yet.</div>
+    <h1>Game Hub</h1>
+    <div class="game-list">
+      <div class="game-item" onclick="openGame('https://ducklit.com')">Ducklit</div>
+      <div class="game-item" onclick="openGame('https://nullxiety.com/')">Nullxiety</div>
+      <div class="game-item" onclick="openGame('https://retro-bowl-college-unblocked.pages.dev/')">Retro Bowl College</div>
+      <div class="game-item" onclick="openGame('https://openexams-net.pages.dev/')">OpenExams</div>
+      <div class="game-item" onclick="openGame('https://unblocked-games.school/')">Unblocked Games</div>
+      <div class="game-item" onclick="openGame('https://openexams.net/')">OpenExams</div>
+      <div class="game-item" onclick="openGame('https://doodlejump.io/?utm_source=side_nav')">Doodle Jump</div>
+      <div class="game-item" onclick="openGame('https://supermario.ee/?utm_source=side_nav')">Super Mario</div>
+      <div class="game-item" onclick="openGame('https://2048.ee/doge/?utm_source=side_nav')">2048 Doge</div>
+      <div class="game-item" onclick="openGame('https://cookie-clicker2.io/?utm_source=side_nav')">Cookie Clicker 2</div>
+      <div class="game-item" onclick="openGame('https://playslope.io/?utm_source=side_nav')">Slope</div>
+      <div class="game-item" onclick="openGame('https://tictactoe.ee/?utm_source=side_nav')">Tic Tac Toe</div>
+      <div class="game-item" onclick="openGame('https://tunnelrush.app/?utm_source=side_nav')">Tunnel Rush</div>
+      <div class="game-item" onclick="openGame('https://basketballstars.app/?utm_source=side_nav')">Basketball Stars</div>
+      <div class="game-item" onclick="openGame('https://subwaysurfers.app/?utm_source=side_nav')">Subway Surfers</div>
+      <div class="game-item" onclick="openGame('https://snak.ee/?utm_source=side_nav')">Snake</div>
+      <div class="game-item" onclick="openGame('https://1v1lol.me/?utm_source=side_nav')">1v1.lol</div>
+      <div class="game-item" onclick="openGame('https://retrobowlcollege.co/?utm_source=side_nav')">Retro Bowl College</div>
+      <div class="game-item" onclick="openGame('https://smash-karts.co/?utm_source=side_nav')">Smash Karts</div>
+      <div class="game-item" onclick="openGame('https://rooftop-snipers.io/?utm_source=side_nav')">Rooftop Snipers</div>
+      <div class="game-item" onclick="openGame('https://kong.ee/?utm_source=side_nav')">Kong</div>
+      <div class="game-item" onclick="openGame('https://planetclicker.org/?utm_source=side_nav')">Planet Clicker</div>
+      <div class="game-item" onclick="openGame('https://bitlifegame.com/?utm_source=side_nav')">BitLife</div>
+      <div class="game-item" onclick="openGame('https://bitlifegame.com/highway-traffic/')">BitLife Highway</div>
+      <div class="game-item" onclick="openGame('https://templerun.ee/?utm_source=side_nav')">Temple Run</div>
+      <div class="game-item" onclick="openGame('https://asteroids.ee/?utm_source=side_nav')">Asteroids</div>
+      <div class="game-item" onclick="openGame('https://flappybird.ee/?utm_source=side_nav')">Flappy Bird</div>
+      <div class="game-item" onclick="openGame('https://tinyfishing.io/?utm_source=side_nav')">Tiny Fishing</div>
+      <div class="game-item" onclick="openGame('https://football-legends.io/?utm_source=side_nav')">Football Legends</div>
+      <div class="game-item" onclick="openGame('https://freemahjong.io/?utm_source=side_nav')">Free Mahjong</div>
+      <div class="game-item" onclick="openGame('https://drivemad.me/?utm_source=side_nav')">Drive Mad</div>
+      <div class="game-item" onclick="openGame('https://skibidi-toilet.org/?utm_source=side_nav')">Skibidi Toilet</div>
+      <div class="game-item" onclick="openGame('https://fireboyandwatergirl.me/?utm_source=side_nav')">Fireboy & Watergirl</div>
+      <div class="game-item" onclick="openGame('https://madalinstuntcars.me/?utm_source=side_nav')">Madalin Stunt Cars</div>
+      <div class="game-item" onclick="openGame('https://pokemontowerdefense.org/?utm_source=side_nav')">Pokemon Tower Defense</div>
+      <div class="game-item" onclick="openGame('https://rollyvortex.org/?utm_source=side_nav')">Rolly Vortex</div>
+      <div class="game-item" onclick="openGame('https://drifthunters.app/?utm_source=side_nav')">Drift Hunters</div>
     </div>
 
-    <script>
-        function openGame(url) {
-            window.open(url, "_blank");
-        }
-    </script>
+    <div class="credits">
+      <p>Silent Gateway • Made with 💻 by Adam</p>
+      <p>More links dropping soon.</p>
+    </div>
+  </div>
+
+  <script>
+    function openGame(url) {
+      window.open(url, "_blank");
+    }
+  </script>
 </body>
 </html>
+
 
