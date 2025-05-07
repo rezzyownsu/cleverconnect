@@ -171,37 +171,34 @@
             <div class="game-item" onclick="openGame('https://bitlifegame.com/highway-traffic/')">BitLife Highway</div>
             <div class="game-item" onclick="openGame('https://templerun.ee/?utm_source=side_nav')">Temple Run</div>
             <div class="game-item" onclick="openGame('https://asteroids.ee/?utm_source=side_nav')">Asteroids</div>
+            <!-- New Games Added -->
+            <div class="game-item" onclick="openGame('https://flappybird.ee/?utm_source=side_nav')">Flappy Bird</div>
+            <div class="game-item" onclick="openGame('https://tinyfishing.io/?utm_source=side_nav')">Tiny Fishing</div>
+            <div class="game-item" onclick="openGame('https://football-legends.io/?utm_source=side_nav')">Football Legends</div>
+            <div class="game-item" onclick="openGame('https://freemahjong.io/?utm_source=side_nav')">Free Mahjong</div>
+            <div class="game-item" onclick="openGame('https://drivemad.me/?utm_source=side_nav')">Drive Mad</div>
+            <div class="game-item" onclick="openGame('https://skibidi-toilet.org/?utm_source=side_nav')">Skibidi Toilet</div>
+            <div class="game-item" onclick="openGame('https://fireboyandwatergirl.me/?utm_source=side_nav')">Fireboy & Watergirl</div>
+            <div class="game-item" onclick="openGame('https://madalinstuntcars.me/?utm_source=side_nav')">Madalin Stunt Cars</div>
+            <div class="game-item" onclick="openGame('https://pokemontowerdefense.org/?utm_source=side_nav')">Pokemon Tower Defense</div>
+            <div class="game-item" onclick="openGame('https://rollyvortex.org/?utm_source=side_nav')">Rolly Vortex</div>
+            <div class="game-item" onclick="openGame('https://drifthunters.app/?utm_source=side_nav')">Drift Hunters</div>
+            <div class="game-item" onclick="openGame('https://snowrider.org/?utm_source=side_nav')">Snow Rider</div>
+            <div class="game-item" onclick="openGame('https://slitherio.lol/?utm_source=side_nav')">Slither.io</div>
+            <div class="game-item" onclick="openGame('https://leveldevil.org/?utm_source=side_nav')">Level Devil</div>
+            <div class="game-item" onclick="openGame('https://agario.one/?utm_source=side_nav')">Agar.io</div>
+            <div class="game-item" onclick="openGame('https://timeshooter2.org/?utm_source=side_nav')">Time Shooter 2</div>
+            <div class="game-item" onclick="openGame('https://wbwwb.com/?utm_source=side_nav')">WBWWB</div>
+            <div class="game-item" onclick="openGame('https://yohoho.xyz/?utm_source=side_nav')">YoHoHo</div>
+            <div class="game-item" onclick="openGame('https://tombofthemask.net/?utm_source=side_nav')">Tomb of the Mask</div>
         </div>
-        <!-- UN-blocker buttons -->
-        <div class="unblock-button-container">
-            <button class="unblock-button" onclick="openUnblockApp()">UN-blocker</button>
-            <button class="unblock-button" onclick="openAltLink()">Alt Link</button>
-        </div>
-    </div>
-
-    <div class="credits">
-        <p><strong>Credits:</strong></p>
-        <p>This was made all by Adam, Anderson/Amateur, and Skibidi Toilet will be mine, yea Ohio Rizz, yea!</p>
     </div>
 
     <script>
         function openGame(url) {
-            const newWindow = window.open('about:blank', '_blank', 'width=800,height=600,scrollbars=yes');
-            newWindow.document.write('<html><head><title>Game</title></head><body style="margin: 0; overflow: hidden;"><iframe src="'+ url +'" style="width: 100%; height: 100vh; border: none;"></iframe></body></html>');
-            newWindow.document.close();
-        }
-
-        function openUnblockApp() {
-            const unblockWindow = window.open('about:blank', '_blank', 'width=800,height=600'); 
-            unblockWindow.document.write('<html><head><title>UN-blocker</title></head><body style="margin: 0; overflow: hidden;"><iframe src="https://cloud.global.ssl.fastly.net/pages/4pps.html" style="width: 100%; height: 100vh; border: none;"></iframe></body></html>');
-            unblockWindow.document.close();
-        }
-
-        function openAltLink() {
-            const altLinkWindow = window.open('about:blank', '_blank', 'width=800,height=600'); 
-            altLinkWindow.document.write('<html><head><title>Alt Link</title></head><body style="margin: 0; overflow: hidden;"><iframe src="https://docs.google.com/presentation/d/1JCF-20fgVfu_fYN-kJ8LekZq6RMHYrALGfxLrJa9gRU/edit#slide=id.p" style="width: 100%; height: 100vh; border: none;"></iframe></body></html>');
-            altLinkWindow.document.close();
+            window.open(url, "_blank");
         }
     </script>
 </body>
 </html>
+
