@@ -36,6 +36,14 @@
             color: white;
         }
 
+        .info-text {
+            color: yellow;
+            font-size: 18px;
+            text-align: center;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
         .game-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Responsive grid layout */
@@ -129,6 +137,11 @@
 </head>
 <body>
     <div class="game-container">
+        <!-- Info Text Added -->
+        <div class="info-text">
+            1 of many alt links not done yet.
+        </div>
+        
         <h1>Game Hub</h1>
         <div class="game-list">
             <div class="game-item" onclick="openGame('https://ducklit.com')">Ducklit</div>
